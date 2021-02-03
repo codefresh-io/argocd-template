@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: "{{.EnvName}}"
+  namespace: "{{.EnvName}}-argocd"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: "{{.EnvName}} project"
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: "*"
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: "{{.EnvName}}"
+  namespace: "{{.EnvName}}-argocd"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: "{{.EnvName}}"
+  source:
+    repoURL: https://github.com/{{.RepoOwner}}/{{.RepoName}}
+    targetRevision: HEAD
+    path: argocd-apps/{{.EnvName}}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: "{{.EnvName}}-argocd"
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

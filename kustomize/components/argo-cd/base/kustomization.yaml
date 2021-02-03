@@ -1,0 +1,4 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - github.com/noam-codefresh/argocd-production/argo-cd?ref=0.1.0
