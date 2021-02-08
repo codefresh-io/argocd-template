@@ -2,6 +2,6 @@
   {
     "op": "replace",
     "path": "/subjects/0/namespace",
-    "value": "{{.EnvName}}-argocd"
+    "value": "{{.EnvName}}-argo-workflows"
   }
 ]

@@ -4,3 +4,25 @@ resources:
   - ../../base
 
 namespace: "{{.EnvName}}-argo-events"
+
+# patches:
+#   - path: patches/clusterRole_argo-events-aggregate-to-admin.json
+#     target:
+#       kind: ClusterRole
+#       name: argo-events-aggregate-to-admin
+#   - path: patches/clusterRole_argo-events-aggregate-to-edit.json
+#     target:
+#       kind: ClusterRole
+#       name: argo-events-aggregate-to-edit
+#   - path: patches/clusterRole_argo-events-aggregate-to-view.json
+#     target:
+#       kind: ClusterRole
+#       name: argo-events-aggregate-to-view
+#   - path: patches/clusterRole_argo-events-role.json
+#     target:
+#       kind: ClusterRole
+#       name: argo-events-role
+#   - path: patches/clusterRoleBinding_argo-events-binding.json
+#     target:
+#       kind: ClusterRoleBinding
+#       name: argo-events-binding

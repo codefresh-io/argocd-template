@@ -1,0 +1,17 @@
+[
+  {
+    "op": "replace",
+    "path": "/metadata/name",
+    "value": "{{.EnvName}}-argocd-application-controller"
+  },
+  {
+    "op": "replace",
+    "path": "/roleRef/name",
+    "value": "{{.EnvName}}-argocd-application-controller"
+  },
+  {
+    "op": "replace",
+    "path": "/subjects/0/namespace",
+    "value": "{{.EnvName}}-argocd"
+  }
+]

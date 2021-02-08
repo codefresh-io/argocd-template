@@ -6,15 +6,39 @@ resources:
 namespace: "{{.EnvName}}-argo-workflows"
 
 patches:
-- path: clusterRoleBinding_patch.json
-  target:
-    group: rbac.authorization.k8s.io
-    version: v1
-    kind: ClusterRoleBinding
-    name: argo-binding
-- path: clusterRoleBinding_patch.json
-  target:
-    group: rbac.authorization.k8s.io
-    version: v1
-    kind: ClusterRoleBinding
-    name: argo-server-binding
+  - path: patches/clusterRoleBinding.json
+    target:
+      kind: ClusterRoleBinding
+      name: argo-binding
+  - path: patches/clusterRoleBinding.json
+    target:
+      kind: ClusterRoleBinding
+      name: argo-server-binding
+#  - path: patches/clusterRole_argo-aggregate-to-admin.json
+#    target:
+#      kind: ClusterRole
+#      name: argo-aggregate-to-admin
+#   - path: patches/clusterRole_argo-aggregate-to-edit.json
+#     target:
+#       kind: ClusterRole
+#       name: argo-aggregate-to-edit
+#   - path: patches/clusterRole_argo-aggregate-to-view.json
+#     target:
+#       kind: ClusterRole
+#       name: argo-aggregate-to-view
+#   - path: patches/clusterRole_argo-cluster-role.json
+#     target:
+#       kind: ClusterRole
+#       name: argo-cluster-role
+#   - path: patches/clusterRole_argo-server-cluster-role.json
+#     target:
+#       kind: ClusterRole
+#       name: argo-server-cluster-role
+#   - path: patches/clusterRoleBinding_argo-binding.json
+#     target:
+#       kind: ClusterRoleBinding
+#       name: argo-binding
+#   - path: patches/clusterRoleBinding_argo-server-binding.json
+#     target:
+#       kind: ClusterRoleBinding
+#       name: argo-server-binding

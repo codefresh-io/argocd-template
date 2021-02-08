@@ -5,3 +5,5 @@ resources:
   - rbac.yaml
 
 namespace: "{{.EnvName}}-workflows"
+
+namePrefix: "{{.EnvName}}-"
