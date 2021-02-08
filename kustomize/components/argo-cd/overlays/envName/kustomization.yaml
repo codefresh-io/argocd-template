@@ -21,15 +21,27 @@ generatorOptions:
     app.kubernetes.io/part-of: argocd
 
 patches:
-- path: clusterRoleBinding_patch.json
-  target:
-    group: rbac.authorization.k8s.io
-    version: v1
-    kind: ClusterRoleBinding
-    name: argocd-application-controller
-- path: clusterRoleBinding_patch.json
-  target:
-    group: rbac.authorization.k8s.io
-    version: v1
-    kind: ClusterRoleBinding
-    name: argocd-server
+  - path: patches/clusterRoleBinding.json
+    target:
+      kind: ClusterRoleBinding
+      name: argocd-application-controller
+  - path: patches/clusterRoleBinding.json
+    target:
+      kind: ClusterRoleBinding
+      name: argocd-server
+#  - path: patches/clusterRole_argocd-application-controller.json
+#    target:
+#      kind: ClusterRole
+#      name: argocd-application-controller
+#   - path: patches/clusterRole_argocd-server.json
+#     target:
+#       kind: ClusterRole
+#       name: argocd-server
+#   - path: patches/clusterRoleBinding_argocd-application-controller.json
+#     target:
+#       kind: ClusterRoleBinding
+#       name: argocd-application-controller
+#   - path: patches/clusterRoleBinding_argocd-server.json
+#     target:
+#       kind: ClusterRoleBinding
+#       name: argocd-server

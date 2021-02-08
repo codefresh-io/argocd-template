@@ -1,0 +1,17 @@
+[
+  {
+    "op": "replace",
+    "path": "/metadata/name",
+    "value": "{{.EnvName}}-argo-server-binding"
+  },
+  {
+    "op": "replace",
+    "path": "/roleRef/name",
+    "value": "{{.EnvName}}-argo-server-cluster-role"
+  },
+  {
+    "op": "replace",
+    "path": "/subjects/0/namespace",
+    "value": "{{.EnvName}}-argo-workflows"
+  }
+]

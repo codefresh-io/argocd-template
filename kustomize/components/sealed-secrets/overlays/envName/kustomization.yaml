@@ -4,3 +4,13 @@ resources:
   - ../../base
 
 namespace: "{{.EnvName}}-argocd"
+
+# patches:
+#   - path: patches/clusterRole_secrets-unsealer.json
+#     target:
+#       kind: ClusterRole
+#       name: secrets-unsealer
+#   - path: patches/clusterRoleBinding_sealed-secrets-controller.json
+#     target:
+#       kind: ClusterRoleBinding
+#       name: sealed-secrets-controller
