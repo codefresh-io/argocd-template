@@ -5,6 +5,9 @@ metadata:
   namespace: "{{.EnvName}}-argocd"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  labels:
+    ent-managed-by: codefresh.io
+    cf-name: project
 spec:
   description: "{{.EnvName}} project"
   sourceRepos:
@@ -27,6 +30,9 @@ metadata:
   namespace: "{{.EnvName}}-argocd"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  labels:
+    ent-managed-by: codefresh.io
+    cf-name: root
 spec:
   project: "{{.EnvName}}"
   source:

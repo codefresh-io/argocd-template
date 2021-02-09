@@ -5,6 +5,9 @@ metadata:
   namespace: "{{.EnvName}}-argocd"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  labels:
+    ent-managed-by: codefresh.io
+    cf-name: argo-workflows
 spec:
   project: {{.EnvName}}
   source:
