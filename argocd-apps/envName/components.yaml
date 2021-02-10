@@ -21,3 +21,7 @@ spec:
     automated:
       selfHeal: true
       prune: true
+  ignoreDifferences:
+    - kind: Application
+      jsonPointers:
+        - /status

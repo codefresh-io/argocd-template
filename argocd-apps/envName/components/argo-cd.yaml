@@ -21,3 +21,7 @@ spec:
       prune: true
     syncOptions:
       - CreateNamespace=true
+  ignoreDifferences:
+    - kind: Application
+      jsonPointers:
+        - /status
