@@ -24,7 +24,8 @@ spec:
     syncOptions:
       - CreateNamespace=true
   ignoreDifferences:
-    - kind: Application
+    - group: argoproj.io
+      kind: Application
       jsonPointers:
         - /status
 
