@@ -5,6 +5,9 @@ metadata:
   namespace: "{{.EnvName}}-argocd"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  labels:
+    ent-managed-by: codefresh.io
+    cf-name: components
 spec:
   project: "{{.EnvName}}"
   source:
@@ -18,3 +21,8 @@ spec:
     automated:
       selfHeal: true
       prune: true
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /status

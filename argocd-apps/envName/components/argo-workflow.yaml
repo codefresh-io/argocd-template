@@ -5,6 +5,9 @@ metadata:
   namespace: "{{.EnvName}}-argocd"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  labels:
+    ent-managed-by: codefresh.io
+    cf-name: argo-workflows
 spec:
   project: {{.EnvName}}
   source:
@@ -20,3 +23,8 @@ spec:
       prune: true
     syncOptions:
       - CreateNamespace=true
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /status

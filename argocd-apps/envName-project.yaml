@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: "{{.EnvName}}"
+  namespace: "{{.EnvName}}-argocd"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    ent-managed-by: codefresh.io
+    cf-name: project
+spec:
+  description: "{{.EnvName}} project"
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: "*"
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"

@@ -3,6 +3,9 @@ kind: Application
 metadata:
   name: "{{.EnvName}}-argo-cd"
   namespace: "{{.EnvName}}-argocd"
+  labels:
+    ent-managed-by: codefresh.io
+    cf-name: argo-cd
 spec:
   project: {{.EnvName}}
   source:
@@ -18,3 +21,8 @@ spec:
       prune: true
     syncOptions:
       - CreateNamespace=true
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /status
