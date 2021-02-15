@@ -13,10 +13,10 @@ spec:
   source:
     repoURL: https://github.com/{{.RepoOwner}}/{{.RepoName}}
     targetRevision: HEAD
-    path: argocd-apps/{{.EnvName}}/entities
+    path: kustomize/entities/overlays/{{.EnvName}}
   destination:
     server: https://kubernetes.default.svc
-    namespace: "{{.EnvName}}-argocd"
+    namespace: "{{.EnvName}}-entities"
   syncPolicy:
     automated:
       selfHeal: true
