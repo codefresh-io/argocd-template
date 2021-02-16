@@ -21,6 +21,7 @@ spec:
     automated:
       selfHeal: true
       prune: true
+      allowEmpty: true
   ignoreDifferences:
     - group: argoproj.io
       kind: Application

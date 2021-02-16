@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: "{{.EnvName}}-entities"
   namespace: "{{.EnvName}}-argocd"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
   labels:
     ent-managed-by: codefresh.io
     cf-name: entities
@@ -21,6 +19,9 @@ spec:
     automated:
       selfHeal: true
       prune: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true
   ignoreDifferences:
     - group: argoproj.io
       kind: Application

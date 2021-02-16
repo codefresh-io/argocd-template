@@ -4,4 +4,5 @@ resources:
   - github.com/codefresh-io/argocd-base/argo-cd?ref=0.1.5
 
 patchesStrategicMerge:
+  - application-controller.yaml
   - server.yaml
