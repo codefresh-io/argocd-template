@@ -3,7 +3,3 @@ kind: Kustomization
 resources:
   - ../../base
   - rbac.yaml
-
-namespace: "{{.EnvName}}-workflows"
-
-namePrefix: "{{.EnvName}}-"
