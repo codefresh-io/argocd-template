@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: "{{.EnvName}}-entities"
   namespace: "{{.EnvName}}-argocd"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
   labels:
     ent-managed-by: codefresh.io
     cf-name: entities
@@ -13,14 +11,17 @@ spec:
   source:
     repoURL: https://github.com/{{.RepoOwner}}/{{.RepoName}}
     targetRevision: HEAD
-    path: argocd-apps/{{.EnvName}}/entities
+    path: kustomize/entities/overlays/{{.EnvName}}
   destination:
     server: https://kubernetes.default.svc
-    namespace: "{{.EnvName}}-argocd"
+    namespace: "{{.EnvName}}-entities"
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true
   ignoreDifferences:
     - group: argoproj.io
       kind: Application

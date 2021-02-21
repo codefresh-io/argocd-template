@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../kustomize/components/argo-cd/overlays/{{.EnvName}}
-  - ../kustomize/components/sealed-secrets/overlays/{{.EnvName}}
+  - ../kustomize/components/argo-cd/overlays/envName
+  - ../kustomize/components/sealed-secrets/overlays/envName
   - namespace.yaml
