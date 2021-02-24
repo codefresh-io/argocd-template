@@ -11,7 +11,7 @@ metadata:
 spec:
   project: {{.EnvName}}
   source:
-    repoURL: {{.RepoUrl}}
+    repoURL: {{.RepoURL}}
     targetRevision: HEAD
     path: kustomize/components/argo-events/overlays/{{.EnvName}}
   destination:
