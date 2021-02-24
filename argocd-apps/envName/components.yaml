@@ -11,7 +11,7 @@ metadata:
 spec:
   project: "{{.EnvName}}"
   source:
-    repoURL: https://github.com/{{.RepoOwner}}/{{.RepoName}}
+    repoURL: {{.RepoUrl}}
     targetRevision: HEAD
     path: argocd-apps/{{.EnvName}}/components
   destination:
