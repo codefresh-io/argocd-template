@@ -4,12 +4,12 @@ metadata:
   name: "{{.EnvName}}-argo-cd"
   namespace: "{{.EnvName}}-argocd"
   labels:
-    ent-managed-by: codefresh.io
-    cf-name: argo-cd
+    app.kubernetes.io/managed-by: argo-installer
+    app.kubernetes.io/name: argo-cd
 spec:
   project: {{.EnvName}}
   source:
-    repoURL: https://github.com/{{.RepoOwner}}/{{.RepoName}}
+    repoURL: {{.RepoURL}}
     targetRevision: HEAD
     path: kustomize/components/argo-cd/overlays/{{.EnvName}}
   destination:

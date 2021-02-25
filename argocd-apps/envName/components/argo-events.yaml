@@ -6,12 +6,12 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    ent-managed-by: codefresh.io
-    cf-name: argo-events
+    app.kubernetes.io/managed-by: argo-installer
+    app.kubernetes.io/name: argo-events
 spec:
   project: {{.EnvName}}
   source:
-    repoURL: https://github.com/{{.RepoOwner}}/{{.RepoName}}
+    repoURL: {{.RepoURL}}
     targetRevision: HEAD
     path: kustomize/components/argo-events/overlays/{{.EnvName}}
   destination:
