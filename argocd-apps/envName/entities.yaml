@@ -4,8 +4,8 @@ metadata:
   name: "{{.EnvName}}-entities"
   namespace: "{{.EnvName}}-argocd"
   labels:
-    ent-managed-by: codefresh.io
-    cf-name: entities
+    app.kubernetes.io/managed-by: argo-installer
+    app.kubernetes.io/name: entities
 spec:
   project: "{{.EnvName}}"
   source:

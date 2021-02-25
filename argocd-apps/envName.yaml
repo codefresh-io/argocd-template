@@ -6,8 +6,8 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    ent-managed-by: codefresh.io
-    cf-name: root
+    app.kubernetes.io/managed-by: argo-installer
+    app.kubernetes.io/name: root
 spec:
   project: "{{.EnvName}}"
   source:
