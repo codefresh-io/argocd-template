@@ -1,2 +1,4 @@
 version: 1.0
-environments: {}
+environments:
+  {{.EnvName}}:
+    rootAppPath: ./argocd-apps/{{.EnvName}}.yaml
