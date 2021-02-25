@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - ../kustomize/components/argo-cd/overlays/envName
   - ../kustomize/components/sealed-secrets/overlays/envName
-  - namespace.yaml
